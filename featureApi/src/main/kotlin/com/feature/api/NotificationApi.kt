@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 interface NotificationApi {
 
     @Composable
-    fun Page()
+    fun NotificationView()
 }
