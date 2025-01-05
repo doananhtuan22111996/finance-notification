@@ -14,8 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class NotificationViewModel @Inject constructor(getNotificationUseCase: GetNotificationUseCase) :
-    ViewModel() {
+class NotificationViewModel @Inject constructor(getNotificationUseCase: GetNotificationUseCase) : ViewModel() {
 
     val localScrollState by mutableStateOf(LazyListState())
 

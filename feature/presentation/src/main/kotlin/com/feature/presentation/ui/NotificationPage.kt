@@ -15,7 +15,9 @@ fun NotificationPage() {
         val model = paging[index]
         model?.let {
             NotificationComponent(
-                title = model.title, description = model.description, date = model.date
+                title = model.title,
+                description = model.description,
+                date = model.date,
             )
         }
     })

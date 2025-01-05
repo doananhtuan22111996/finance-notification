@@ -20,12 +20,11 @@ internal class NetworkModule {
     @Singleton
     @AnoRetrofitApiService
     fun provideApiServices(
-        okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory
-    ): NotificationApiService {
-        return provideRetrofit<NotificationApiService>(
-            baseUrl = Configs.MAIN_DOMAIN,
-            okHttpClient = okHttpClient,
-            gsonConverterFactory = gsonConverterFactory
-        )
-    }
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory,
+    ): NotificationApiService = provideRetrofit<NotificationApiService>(
+        baseUrl = Configs.MAIN_DOMAIN,
+        okHttpClient = okHttpClient,
+        gsonConverterFactory = gsonConverterFactory,
+    )
 }

@@ -27,7 +27,7 @@ class DemoActivity : ComponentActivity() {
                     Box(
                         modifier = Modifier
                             .padding(innerPadding)
-                            .fillMaxSize()
+                            .fillMaxSize(),
                     ) {
                         NotificationPage()
                     }
