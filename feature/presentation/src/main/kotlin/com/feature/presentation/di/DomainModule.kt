@@ -14,7 +14,5 @@ class DomainModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetNotificationUseCase(repository: GetNotificationRepository): GetNotificationUseCase {
-        return GetNotificationUseCase(repository)
-    }
+    fun provideGetNotificationUseCase(repository: GetNotificationRepository): GetNotificationUseCase = GetNotificationUseCase(repository)
 }

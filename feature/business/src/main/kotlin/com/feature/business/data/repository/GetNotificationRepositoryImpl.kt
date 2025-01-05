@@ -14,20 +14,16 @@ import vn.core.data.model.ListResponse
 import vn.core.data.network.PagingByNetworkDataSource
 import javax.inject.Inject
 
-class GetNotificationRepositoryImpl @Inject constructor(@AnoRetrofitApiService private val apiService: NotificationApiService) :
-    GetNotificationRepository {
+class GetNotificationRepositoryImpl @Inject constructor(@AnoRetrofitApiService private val apiService: NotificationApiService) : GetNotificationRepository {
 
-    override fun getNotifications(page: Int): Flow<PagingData<NotificationModel>> =
-        Pager(config = PagingConfig(pageSize = 15)) {
-            object : PagingByNetworkDataSource<NotificationRaw, NotificationModel>() {
-                override suspend fun onApi(page: Int?): Response<ListResponse<NotificationRaw>> {
-                    return apiService.getNotifications(page = page ?: 1)
-                }
+    override fun getNotifications(page: Int): Flow<PagingData<NotificationModel>> = Pager(config = PagingConfig(pageSize = 15)) {
+        object : PagingByNetworkDataSource<NotificationRaw, NotificationModel>() {
+            override suspend fun onApi(page: Int?): Response<ListResponse<NotificationRaw>> = apiService.getNotifications(page = page ?: 1)
 
-                override suspend fun processResponse(request: ListResponse<NotificationRaw>?): ListResponse<NotificationModel> {
-                    return ListResponse(data = request?.data?.map { it.raw2Model() },
-                        metadata = request?.metadata)
-                }
-            }
-        }.flow
+            override suspend fun processResponse(request: ListResponse<NotificationRaw>?): ListResponse<NotificationModel> = ListResponse(
+                data = request?.data?.map { it.raw2Model() },
+                metadata = request?.metadata,
+            )
+        }
+    }.flow
 }

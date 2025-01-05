@@ -9,13 +9,13 @@ class NotificationRaw(
     private val title: String? = EMPTY_STRING,
     private val description: String? = EMPTY_STRING,
     val date: String? = EMPTY_STRING,
-    private val type: String? = EMPTY_STRING
+    private val type: String? = EMPTY_STRING,
 ) : BaseRaw() {
     override fun raw2Model(): NotificationModel = NotificationModel(
         id = id ?: -1,
         title = title ?: EMPTY_STRING,
         description = description ?: EMPTY_STRING,
         date = date ?: EMPTY_STRING,
-        type = type ?: EMPTY_STRING
+        type = type ?: EMPTY_STRING,
     )
 }
